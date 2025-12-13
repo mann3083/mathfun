@@ -152,22 +152,28 @@ class MathGenerator:
         return [pool[0]]
 
     def generate_all(self) -> List[Dict[str, Any]]:
-        # One from each segment: arithmetic, factorization, conversion, mixed, equation, and one random
-        segments = [
-            random.choice(self.generate_arithmetic()),
-            self.generate_factorization()[0],
-            self.generate_conversions()[0],
-            self.generate_mixed()[0],
-            self.generate_equation()[0]
-        ]
-        # For the 6th, pick one more from any type
-        extra = random.choice([
-            random.choice(self.generate_arithmetic()),
-            self.generate_factorization()[0],
-            self.generate_conversions()[0],
-            self.generate_mixed()[0],
-            self.generate_equation()[0]
-        ])
-        segments.append(extra)
+        # Target: 10 questions, equal segments (5 segments -> 2 each)
+        segments = []
+        
+        # 1. Arithmetic: Pick 2 distinct
+        arith = self.generate_arithmetic()
+        segments.extend(random.sample(arith, 2))
+        
+        # 2. Factorization: Generate 2
+        for _ in range(2):
+            segments.extend(self.generate_factorization())
+            
+        # 3. Conversions: Generate 2
+        for _ in range(2):
+            segments.extend(self.generate_conversions())
+            
+        # 4. Mixed: Generate 2
+        for _ in range(2):
+            segments.extend(self.generate_mixed())
+            
+        # 5. Equations: Generate 2
+        for _ in range(2):
+            segments.extend(self.generate_equation())
+
         random.shuffle(segments)
         return segments
