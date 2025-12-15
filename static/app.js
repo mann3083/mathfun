@@ -69,14 +69,18 @@ document.querySelectorAll('.mark-btn').forEach((btn, idx) => {
 function getUserAnswer(idx) {
     const q = questions[idx];
     if (q.type === 'single') {
-        return document.querySelector(`[name='answer-${q.id}']`).value;
+        const val = document.querySelector(`[name='answer-${q.id}']`).value;
+        return val === '' ? null : val;
     } else if (q.type === 'dual') {
-        return {
-            quotient: document.querySelector(`[name='answer-${q.id}-quotient']`).value,
-            remainder: document.querySelector(`[name='answer-${q.id}-remainder']`).value
+        const qVal = document.querySelector(`[name='answer-${q.id}-quotient']`).value;
+        const rVal = document.querySelector(`[name='answer-${q.id}-remainder']`).value;
+        return (qVal === '' && rVal === '') ? null : {
+            quotient: qVal,
+            remainder: rVal
         };
     } else if (q.type === 'text') {
-        return document.querySelector(`[name='answer-${q.id}']`).value.trim();
+        const val = document.querySelector(`[name='answer-${q.id}']`).value.trim();
+        return val === '' ? null : val;
     }
     return null;
 }
