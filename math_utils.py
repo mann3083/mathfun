@@ -5,19 +5,26 @@ class MathGenerator:
     def generate_equation(self) -> List[Dict[str, Any]]:
         # ax + b = c, solve for x
         a = random.randint(2, 12)
-        x = random.choice([random.randint(-20, 20), round(random.uniform(-20, 20), 1)])
+        #x = random.choice([random.randint(-20, 20), round(random.uniform(-20, 20), 1)])
+        # Getting rid of float x to reduce complexity
+        x = random.randint(-20, 20)
         b = random.randint(-20, 20)
         c = a * x + b
+
+        #if isinstance(c, float):
+        #    c = round(c, 1)
+        #    if c.is_integer():
+        #        c = int(c)
         # If x is float, ensure only one decimal digit, no rounding off
-        if isinstance(x, float):
-            x_str = f"{x:.1f}"
-        else:
-            x_str = str(x)
+        #if isinstance(x, float):
+        #    x_str = f"{x:.1f}"
+        #else:
+        #    x_str = str(x)
         question = {
             'id': self._unique_id(),
             'question_text': f"Solve for x: {a}x {'+' if b >= 0 else '-'} {abs(b)} = {c}",
             'type': 'single',
-            'correct_answer': x_str
+            'correct_answer': str(x)
         }
         return [question]
     def __init__(self):

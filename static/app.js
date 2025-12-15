@@ -84,7 +84,7 @@ function getUserAnswer(idx) {
     }
     return null;
 }
-function checkAnswer(idx, userAns) {
+/*function checkAnswer(idx, userAns) {
     const q = questions[idx];
     let correct = false;
     if (q.type === 'single') {
@@ -95,6 +95,36 @@ function checkAnswer(idx, userAns) {
         if (q.question_text.includes('prime factors')) {
             let ans = q.correct_answer.split(',').map(x => x.trim()).filter(x => x);
             let user = userAns.split(',').map(x => x.trim()).filter(x => x);
+            correct = (ans.length === user.length && ans.every((v, i) => v == user[i]));
+        } else if (q.question_text.includes('fraction')) {
+            correct = (userAns.replace(/\s/g, '') === q.correct_answer.replace(/\s/g, ''));
+        }
+    }
+    return correct;
+}*/
+
+function checkAnswer(idx, userAns) {
+    const q = questions[idx];
+    let correct = false;
+    
+    // Safety check: if user didn't answer, mark incorrect immediately
+    if (userAns === null) return false;
+
+    if (q.type === 'single') {
+        correct = Math.abs(Number(userAns) - Number(q.correct_answer)) < 0.01;
+    } else if (q.type === 'dual') {
+        correct = (Number(userAns.quotient) === q.correct_answer.quotient && Number(userAns.remainder) === q.correct_answer.remainder);
+    } else if (q.type === 'text') {
+        if (q.question_text.includes('prime factors')) {
+            // Split, trim, and filter empty strings
+            let ans = q.correct_answer.split(',').map(x => x.trim()).filter(x => x);
+            let user = userAns.split(',').map(x => x.trim()).filter(x => x);
+
+            // FIX: Sort both arrays numerically so "2, 11" matches "11, 2"
+            ans.sort((a, b) => a - b);
+            user.sort((a, b) => a - b);
+
+            // Compare sorted arrays
             correct = (ans.length === user.length && ans.every((v, i) => v == user[i]));
         } else if (q.question_text.includes('fraction')) {
             correct = (userAns.replace(/\s/g, '') === q.correct_answer.replace(/\s/g, ''));
