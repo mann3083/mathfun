@@ -1,0 +1,62 @@
+/* static/styles.css */
+
+.card {
+    margin-bottom: 1.5rem;
+}
+
+/* Sticky sidebar for scrolling */
+.sticky-sidebar {
+    position: -webkit-sticky;
+    position: sticky;
+    top: 20px;
+    z-index: 1000;
+}
+
+/* --- NAVIGATION BUTTONS --- */
+.nav-btn {
+    /* 1. GEOMETRY: Force Perfect Circle */
+    width: 45px !important;
+    height: 45px !important;
+    padding: 0 !important;       /* Kill Bootstrap padding */
+    border-radius: 50% !important;
+    line-height: 1 !important;   /* Kill Bootstrap line-height */
+    
+    /* 2. ALIGNMENT: Perfect Center */
+    display: flex !important;
+    justify-content: center;
+    align-items: center;
+    
+    /* 3. APPEARANCE */
+    font-weight: bold;
+    font-size: 1.1rem;
+    transition: all 0.2s ease-in-out;
+    border: 2px solid #bdbdbd !important; 
+    background-color: #e0e0e0 !important; /* Default Grey */
+    color: #333 !important;
+    cursor: pointer;
+    box-shadow: 0 2px 4px rgba(0,0,0,0.1); /* Subtle depth */
+}
+
+/* --- STATES (Order Matters!) --- */
+
+/* 1. Answered (Blue) */
+.nav-btn.answered {
+    background-color: #1976d2 !important;
+    color: #fff !important;
+    border-color: #1976d2 !important;
+}
+
+/* 2. Marked for Review (Yellow - Overrides Blue) */
+.nav-btn.marked {
+    background-color: #ffe066 !important;
+    color: #333 !important;
+    border-color: #ffd700 !important;
+}
+
+/* 3. Active (Black Border - Sits on top of everything) */
+.nav-btn.active {
+    border-color: #212529 !important;
+    border-width: 3px !important;
+    transform: scale(1.1);
+    z-index: 10;
+}
