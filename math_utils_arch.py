@@ -2,6 +2,31 @@ import random
 from typing import List, Dict, Any
 
 class MathGenerator:
+    def generate_equation(self) -> List[Dict[str, Any]]:
+        # ax + b = c, solve for x
+        a = random.randint(2, 12)
+        #x = random.choice([random.randint(-20, 20), round(random.uniform(-20, 20), 1)])
+        # Getting rid of float x to reduce complexity
+        x = random.randint(-20, 20)
+        b = random.randint(-20, 20)
+        c = a * x + b
+
+        #if isinstance(c, float):
+        #    c = round(c, 1)
+        #    if c.is_integer():
+        #        c = int(c)
+        # If x is float, ensure only one decimal digit, no rounding off
+        #if isinstance(x, float):
+        #    x_str = f"{x:.1f}"
+        #else:
+        #    x_str = str(x)
+        question = {
+            'id': self._unique_id(),
+            'question_text': f"Solve for x: {a}x {'+' if b >= 0 else '-'} {abs(b)} = {c}",
+            'type': 'single',
+            'correct_answer': str(x)
+        }
+        return [question]
     def __init__(self):
         self.arithmetic_ops = ['+', '-', '*', '/']
         self.friendly_denominators = [2, 4, 5, 8, 10, 20, 25, 50]
@@ -14,60 +39,42 @@ class MathGenerator:
                 self.generated_ids.add(uid)
                 return uid
 
-    def generate_equation(self) -> List[Dict[str, Any]]:
-        # ax + b = c, solve for x
-        a = random.randint(2, 12)
-        x = random.randint(-20, 20)
-        b = random.randint(-20, 20)
-        c = a * x + b
-
-        question = {
-            'id': self._unique_id(),
-            'question_text': f"Solve for x: {a}x {'+' if b >= 0 else '-'} {abs(b)} = {c}",
-            'type': 'single',
-            'correct_answer': str(x),
-            'category': 'Algebra'  # <--- NEW TAG
-        }
-        return [question]
-
     def generate_arithmetic(self) -> List[Dict[str, Any]]:
         questions = []
-        
-        # 1. Addition
+        # One question for each arithmetic type: +, -, *, /
+        # Addition
         a, b = random.randint(1000, 9999), random.randint(1000, 9999)
         questions.append({
             'id': self._unique_id(),
             'question_text': f"{a} + {b} = ?",
             'type': 'single',
-            'correct_answer': a + b,
-            'category': 'Arithmetic' # <--- NEW TAG
+            'correct_answer': a + b
         })
-        
-        # 2. Subtraction
+        # Subtraction
         a, b = sorted([random.randint(1000, 9999), random.randint(1000, 9999)], reverse=True)
         questions.append({
             'id': self._unique_id(),
             'question_text': f"{a} - {b} = ?",
             'type': 'single',
-            'correct_answer': a - b,
-            'category': 'Arithmetic' # <--- NEW TAG
+            'correct_answer': a - b
         })
-        
-        # 3. Multiplication
+        # Multiplication (ensure product <= 9999)
+        # Find all (a, b) pairs where 1000 <= a <= 9999, 2 <= b <= 9, a * b <= 9999
+        # To simplify, pick b first, then restrict a
         b = random.randint(2, 9)
         max_a = min(9999, 9999 // b)
         min_a = max(1000, 1000 // b + (1 if 1000 % b else 0))
-        if min_a > max_a: min_a, max_a = 1000, 9999 // b
+        if min_a > max_a:
+            min_a = 1000
+            max_a = 9999 // b
         a = random.randint(min_a, max_a)
         questions.append({
             'id': self._unique_id(),
             'question_text': f"{a} × {b} = ?",
             'type': 'single',
-            'correct_answer': a * b,
-            'category': 'Arithmetic' # <--- NEW TAG
+            'correct_answer': a * b
         })
-        
-        # 4. Division
+        # Division
         divisor = random.randint(2, 99)
         dividend = random.randint(1000, 9999)
         quotient = dividend // divisor
@@ -76,8 +83,7 @@ class MathGenerator:
             'id': self._unique_id(),
             'question_text': f"Divide {dividend} by {divisor}. What is the Quotient and Remainder?",
             'type': 'dual',
-            'correct_answer': {'quotient': quotient, 'remainder': remainder},
-            'category': 'Arithmetic' # <--- NEW TAG
+            'correct_answer': {'quotient': quotient, 'remainder': remainder}
         })
         return questions
 
@@ -88,8 +94,7 @@ class MathGenerator:
             'id': self._unique_id(),
             'question_text': f"List all prime factors of {n} (comma separated)",
             'type': 'text',
-            'correct_answer': ','.join(map(str, factors)),
-            'category': 'Number Theory' # <--- NEW TAG
+            'correct_answer': ','.join(map(str, factors))
         }]
 
     def prime_factors(self, n: int) -> List[int]:
@@ -114,8 +119,7 @@ class MathGenerator:
                 'id': self._unique_id(),
                 'question_text': f"Convert {numer}/{denom} to decimal.",
                 'type': 'single',
-                'correct_answer': dec,
-                'category': 'Fractions & %' # <--- NEW TAG
+                'correct_answer': dec
             }]
         elif mode == 'dec2perc':
             denom = random.choice(self.friendly_denominators)
@@ -126,8 +130,7 @@ class MathGenerator:
                 'id': self._unique_id(),
                 'question_text': f"Convert {dec} to percentage.",
                 'type': 'single',
-                'correct_answer': perc,
-                'category': 'Fractions & %' # <--- NEW TAG
+                'correct_answer': perc
             }]
         else:  # perc2frac
             denom = random.choice(self.friendly_denominators)
@@ -137,8 +140,7 @@ class MathGenerator:
                 'id': self._unique_id(),
                 'question_text': f"Convert {perc}% to fraction (as a/b, lowest terms)",
                 'type': 'text',
-                'correct_answer': self._lowest_terms(numer, denom),
-                'category': 'Fractions & %' # <--- NEW TAG
+                'correct_answer': self._lowest_terms(numer, denom)
             }]
 
     def _gcd(self, a, b):
@@ -151,23 +153,34 @@ class MathGenerator:
         return f"{numer // g}/{denom // g}"
 
     def generate_mixed(self) -> List[Dict[str, Any]]:
-        # This preserves the category from the underlying function call
+        # One random from any type
         pool = self.generate_arithmetic() + self.generate_factorization() + self.generate_conversions()
         random.shuffle(pool)
         return [pool[0]]
 
     def generate_all(self) -> List[Dict[str, Any]]:
+        # Target: 10 questions, equal segments (5 segments -> 2 each)
         segments = []
         
-        # 1. Arithmetic
+        # 1. Arithmetic: Pick 2 distinct
         arith = self.generate_arithmetic()
         segments.extend(random.sample(arith, 2))
         
-        # 2. Others (2 each)
-        for _ in range(2): segments.extend(self.generate_factorization())
-        for _ in range(2): segments.extend(self.generate_conversions())
-        for _ in range(2): segments.extend(self.generate_mixed())
-        for _ in range(2): segments.extend(self.generate_equation())
+        # 2. Factorization: Generate 2
+        for _ in range(2):
+            segments.extend(self.generate_factorization())
+            
+        # 3. Conversions: Generate 2
+        for _ in range(2):
+            segments.extend(self.generate_conversions())
+            
+        # 4. Mixed: Generate 2
+        for _ in range(2):
+            segments.extend(self.generate_mixed())
+            
+        # 5. Equations: Generate 2
+        for _ in range(2):
+            segments.extend(self.generate_equation())
 
         random.shuffle(segments)
         return segments

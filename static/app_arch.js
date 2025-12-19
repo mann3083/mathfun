@@ -11,6 +11,7 @@ let results = Array(questions.length).fill(false);
 // --- 2. CORE FUNCTIONS ---
 
 function updateGlobalState() {
+    // A. Update Counts
     let answeredCount = userAnswers.filter(a => isValidAnswer(a)).length;
     let reviewCount = markedForReview.filter(Boolean).length;
 
@@ -19,15 +20,27 @@ function updateGlobalState() {
     document.getElementById('toreview-count').textContent = reviewCount;
     document.getElementById('total-count').textContent = questions.length;
 
+    // B. Update Sidebar Buttons
     document.querySelectorAll('.nav-btn').forEach(btn => {
         const idx = parseInt(btn.dataset.nav);
+
+        // Reset classes safely
         btn.classList.remove('active', 'marked', 'answered');
 
-        if (markedForReview[idx]) btn.classList.add('marked');
-        else if (isValidAnswer(userAnswers[idx])) btn.classList.add('answered');
-        if (idx === current) btn.classList.add('active');
+        // Apply Color Priority
+        if (markedForReview[idx]) {
+            btn.classList.add('marked'); // Yellow
+        } else if (isValidAnswer(userAnswers[idx])) {
+            btn.classList.add('answered'); // Blue
+        }
+
+        // Apply Active Border
+        if (idx === current) {
+            btn.classList.add('active');
+        }
     });
 
+    // C. Show/Hide Question Cards
     document.querySelectorAll('.question-section').forEach((el, i) => {
         el.style.display = (i === current) ? 'block' : 'none';
     });
@@ -35,7 +48,10 @@ function updateGlobalState() {
 
 function isValidAnswer(ans) {
     if (ans === null) return false;
-    if (typeof ans === 'object') return ans.quotient !== '' || ans.remainder !== '';
+    if (typeof ans === 'object') {
+        // For dual questions, valid if at least one field has text
+        return ans.quotient !== '' || ans.remainder !== '';
+    }
     return ans.toString().trim() !== '';
 }
 
@@ -43,6 +59,7 @@ function getUserAnswer(idx) {
     const q = questions[idx];
     if (q.type === 'single' || q.type === 'text') {
         const el = document.querySelector(`[name='answer-${q.id}']`);
+        // FIX: Trim whitespace so " " doesn't count as an answer
         return el.value.trim() === '' ? null : el.value.trim();
     } else if (q.type === 'dual') {
         const qVal = document.querySelector(`[name='answer-${q.id}-quotient']`).value.trim();
@@ -61,17 +78,56 @@ function saveAndMove(newIdx) {
     updateGlobalState();
 }
 
-document.querySelectorAll('.nav-btn').forEach(btn => btn.addEventListener('click', () => saveAndMove(parseInt(btn.dataset.nav))));
-document.querySelectorAll('.next-btn').forEach(btn => btn.addEventListener('click', () => { if (current < questions.length - 1) saveAndMove(current + 1); }));
-document.querySelectorAll('.prev-btn').forEach(btn => btn.addEventListener('click', () => { if (current > 0) saveAndMove(current - 1); }));
-document.querySelectorAll('.mark-btn').forEach(btn => btn.addEventListener('click', () => {
-    markedForReview[current] = !markedForReview[current];
-    userAnswers[current] = getUserAnswer(current);
-    updateGlobalState();
+// Sidebar Clicks
+document.querySelectorAll('.nav-btn').forEach(btn => {
+    btn.addEventListener('click', () => {
+        saveAndMove(parseInt(btn.dataset.nav));
+    });
+});
+
+// Next/Prev Clicks
+document.querySelectorAll('.next-btn').forEach(btn => btn.addEventListener('click', () => {
+    if (current < questions.length - 1) saveAndMove(current + 1);
 }));
-document.addEventListener('keydown', (e) => { if (e.key === 'Enter') { e.preventDefault(); if (current < questions.length - 1) saveAndMove(current + 1); } });
-document.querySelectorAll('.submit-btn').forEach(btn => btn.addEventListener('click', () => { stopTimer(current); userAnswers[current] = getUserAnswer(current); submitQuiz(); }));
-document.querySelectorAll('.answer-input').forEach(input => input.addEventListener('input', () => { userAnswers[current] = getUserAnswer(current); updateGlobalState(); }));
+
+document.querySelectorAll('.prev-btn').forEach(btn => btn.addEventListener('click', () => {
+    if (current > 0) saveAndMove(current - 1);
+}));
+
+// Mark for Review
+document.querySelectorAll('.mark-btn').forEach(btn => {
+    btn.addEventListener('click', () => {
+        markedForReview[current] = !markedForReview[current];
+        userAnswers[current] = getUserAnswer(current); // Sync answer state immediately
+        updateGlobalState();
+    });
+});
+
+// FIX: Prevent "Enter" key from reloading the page
+document.addEventListener('keydown', function (event) {
+    if (event.key === 'Enter') {
+        event.preventDefault(); // Stop form submit
+        // Optional: Make Enter click "Next"
+        if (current < questions.length - 1) saveAndMove(current + 1);
+    }
+});
+
+// Submit Button
+document.querySelectorAll('.submit-btn').forEach(btn => {
+    btn.addEventListener('click', () => {
+        stopTimer(current);
+        userAnswers[current] = getUserAnswer(current);
+        submitQuiz();
+    });
+});
+
+// Real-time Input Validation for Navigation Colors
+document.querySelectorAll('.answer-input').forEach(input => {
+    input.addEventListener('input', () => {
+        userAnswers[current] = getUserAnswer(current);
+        updateGlobalState();
+    });
+});
 
 // --- 4. TIMER LOGIC ---
 
@@ -89,22 +145,26 @@ function stopTimer(idx) {
     if (timers[idx]) { clearInterval(timers[idx]); timers[idx] = null; }
 }
 
-// --- 5. GRADING & SUBMISSION LOGIC ---
+// --- 5. GRADING LOGIC ---
 
 function checkAnswer(idx, userAns) {
     const q = questions[idx];
     if (!isValidAnswer(userAns)) return false;
 
     if (q.type === 'single') {
+        // Robust comparison for numbers (handles "5" vs 5)
         return Math.abs(Number(userAns) - Number(q.correct_answer)) < 0.01;
     } else if (q.type === 'dual') {
-        return (Number(userAns.quotient) === q.correct_answer.quotient && Number(userAns.remainder) === q.correct_answer.remainder);
+        return (Number(userAns.quotient) === q.correct_answer.quotient &&
+            Number(userAns.remainder) === q.correct_answer.remainder);
     } else if (q.type === 'text') {
         if (q.question_text.includes('prime factors')) {
+            // Sort to allow any order: "2, 3" == "3, 2"
             let ans = q.correct_answer.split(',').map(x => x.trim()).filter(x => x).sort((a, b) => a - b);
             let user = userAns.split(',').map(x => x.trim()).filter(x => x).sort((a, b) => a - b);
             return (ans.length === user.length && ans.every((v, i) => v == user[i]));
         } else if (q.question_text.includes('fraction')) {
+            // Remove spaces: "1 / 2" -> "1/2"
             return (userAns.replace(/\s/g, '') === q.correct_answer.replace(/\s/g, ''));
         }
         return userAns.trim() === q.correct_answer;
@@ -112,65 +172,21 @@ function checkAnswer(idx, userAns) {
     return false;
 }
 
-async function submitQuiz() {
+function submitQuiz() {
     let score = 0;
-    let detailsPayload = [];
-
     for (let i = 0; i < questions.length; i++) {
         results[i] = checkAnswer(i, userAnswers[i]);
         if (results[i]) score++;
-
-        detailsPayload.push({
-            question_id: questions[i].id,
-            question_text: questions[i].question_text,
-            question_type: questions[i].type,
-            category: questions[i].category || "General", // <--- NEW: PASSING CATEGORY
-            user_answer: userAnswers[i] === null ? "No Answer" : userAnswers[i],
-            correct_answer: questions[i].correct_answer,
-            is_correct: results[i],
-            time_spent: times[i]
-        });
     }
 
-    let totalTime = times.reduce((a, b) => a + b, 0);
-    let percentage = (score / questions.length) * 100;
-
-    const fullPayload = {
-        summary: {
-            score_obtained: score,
-            total_questions: questions.length,
-            percentage: parseFloat(percentage.toFixed(2)),
-            total_time_seconds: totalTime
-        },
-        details: detailsPayload
-    };
-
-    try {
-        const response = await fetch('/api/submit', {
-            method: 'POST',
-            headers: { 'Content-Type': 'application/json' },
-            body: JSON.stringify(fullPayload)
-        });
-
-        if (response.ok) {
-            const data = await response.json();
-            console.log("Quiz saved successfully. Key:", data.key);
-        } else {
-            console.error("Server Error:", response.statusText);
-            alert("Error saving quiz! Check console for details.");
-        }
-
-    } catch (error) {
-        console.error("Network Error:", error);
-        alert("Could not connect to server to save results.");
-    }
-
+    // UI Cleanup for Result View
     document.getElementById('quiz-form').classList.add('d-none');
     document.getElementById('result-area').classList.remove('d-none');
-    document.getElementById('quiz-status-header').style.display = 'none';
+    // Hide sidebar in results
     document.getElementById('sidebar-column').classList.add('d-none');
     document.getElementById('main-column').classList.replace('col-md-9', 'col-md-12');
 
+    let totalTime = times.reduce((a, b) => a + b, 0);
     document.getElementById('score-summary').innerHTML =
         `Score: <b>${score} / ${questions.length}</b> &nbsp;|&nbsp; Total Time: <b>${totalTime}s</b>`;
 
@@ -182,6 +198,7 @@ async function submitQuiz() {
         let uAns = userAnswers[i];
         let cAns = q.correct_answer;
 
+        // Format display
         let uStr = uAns;
         let cStr = cAns;
 
@@ -193,6 +210,9 @@ async function submitQuiz() {
         }
 
         let status = results[i] ? 'Correct' : 'Incorrect';
+        // Green row for correct, Red for incorrect
+        let rowClass = results[i] ? 'table-success' : 'table-danger';
+
         tbody.innerHTML += `
             <tr class="${results[i] ? '' : 'table-light'}">
                 <td>${i + 1}</td>
@@ -205,5 +225,6 @@ async function submitQuiz() {
     }
 }
 
+// --- 6. INITIALIZATION ---
 updateGlobalState();
 startTimer(0);
