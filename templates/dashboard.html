@@ -68,7 +68,9 @@
                 <div class="card shadow-sm h-100">
                     <div class="card-header bg-white fw-bold">Skill Profile</div>
                     <div class="card-body">
-                        <canvas id="skillRadar"></canvas>
+                        <div style="position: relative; height: 350px;">
+                            <canvas id="skillRadar"></canvas>
+                        </div>
                     </div>
                 </div>
             </div>
@@ -122,13 +124,49 @@
                     }
                 });
 
-                // --- 3. SKILL RADAR LOGIC ---
+                // --- 3. SKILL RADAR LOGIC (Standardized Groups) ---
                 const skillStats = {}; 
-                // Structure: { 'Algebra': { total: 0, correct: 0 }, ... }
+                
+                // MAPPING: Clubs 13 topics + Legacy topics into 6 Standard Sections
+                const categoryMapping = {
+                    // 1. ARITHMETIC
+                    "Addition": "Arithmetic",
+                    "Subtraction": "Arithmetic",
+                    "Multiplication": "Arithmetic",
+                    "Division": "Arithmetic",
+                    "Arithmetic": "Arithmetic", // Legacy support
+
+                    // 2. NUMBER CONCEPTS
+                    "Factors": "Number Concepts",
+                    "Fractions & Conversions": "Number Concepts",
+                    "Fractions & %": "Number Concepts", // Legacy support
+                    "Number Theory": "Number Concepts", // Legacy support
+
+                    // 3. APPLIED MATH
+                    "Profit & Loss": "Applied Math",
+                    "Unitary Method": "Applied Math",
+
+                    // 4. ALGEBRA
+                    "Algebra": "Algebra",
+
+                    // 5. GEOMETRY
+                    "Geometry": "Geometry",
+
+                    // 6. REASONING & DATA
+                    "Data Interpretation": "Reasoning & Data",
+                    "Data Sufficiency": "Reasoning & Data",
+                    "Logical Reasoning": "Reasoning & Data"
+                };
 
                 Object.values(data).forEach(session => {
                     session.details.forEach(q => {
-                        const cat = q.category || "General";
+                        let cat = q.category || "General";
+                        
+                        // Map granular categories to Standard Sections
+                        if (categoryMapping[cat]) {
+                            cat = categoryMapping[cat];
+                        }
+
                         if (!skillStats[cat]) skillStats[cat] = { total: 0, correct: 0 };
                         
                         skillStats[cat].total++;
@@ -150,18 +188,32 @@
                             label: 'Proficiency (%)',
                             data: dataPoints,
                             fill: true,
-                            backgroundColor: 'rgba(255, 99, 132, 0.2)',
-                            borderColor: 'rgb(255, 99, 132)',
-                            pointBackgroundColor: 'rgb(255, 99, 132)',
+                            backgroundColor: 'rgba(54, 162, 235, 0.2)', // Changed to Blue for professional look
+                            borderColor: 'rgb(54, 162, 235)',
+                            pointBackgroundColor: 'rgb(54, 162, 235)',
+                            pointBorderColor: '#fff',
+                            pointHoverBackgroundColor: '#fff',
+                            pointHoverBorderColor: 'rgb(54, 162, 235)'
                         }]
                     },
                     options: {
-                        elements: { line: { tension: 0.2 } },
+                        responsive: true,
+                        maintainAspectRatio: false,
+                        plugins: {
+                            legend: { display: false }
+                        },
                         scales: {
                             r: {
                                 angleLines: { display: true },
                                 suggestedMin: 0,
-                                suggestedMax: 100
+                                suggestedMax: 100,
+                                pointLabels: {
+                                    font: { size: 12, weight: 'bold' }
+                                },
+                                ticks: {
+                                    backdropColor: 'transparent', // Cleaner look
+                                    stepSize: 25
+                                }
                             }
                         }
                     }

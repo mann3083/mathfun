@@ -1,0 +1,62 @@
+{
+    "profit_loss_items": [
+        "bicycle", "laptop", "watch", "camera", "phone", "painting", "scooter", 
+        "gaming console", "telescope", "rare coin", "electric guitar", "drone"
+    ],
+    "profit_loss_names": [
+        "A shopkeeper", "John", "Sarah", "A merchant", "The store", "Mr. Smith", 
+        "Bruce Wayne", "Tony Stark", "A goblin merchant", "Nook's Cranny"
+    ],
+    "unitary_cost_items": [
+        "bananas", "Dragon Eggs", "Chocolate Frogs", "cookies", "magic wands", 
+        "donuts", "Poke Balls", "Krabby Patties", "Energon cubes", "gold ingots"
+    ],
+    "unitary_work_scenarios": [
+        {"actor": "Minions", "task": "assemble Gru's new rocket"},
+        {"actor": "Hogwarts students", "task": "brew a Polyjuice Potion"},
+        {"actor": "pirates", "task": "scrub the deck of the Black Pearl"},
+        {"actor": "builders", "task": "construct a LEGO tower"},
+        {"actor": "Avengers", "task": "clean up New York City after a battle"},
+        {"actor": "Minecraft players", "task": "build a diamond castle"},
+        {"actor": "Stormtroopers", "task": "search the desert for droids"}
+    ],
+    "di_topics": [
+        {"title": "Student Marks", "labels": ["Math", "Sci", "Eng", "Hist"], "unit": "Marks"},
+        {"title": "Rainfall in mm", "labels": ["Jan", "Feb", "Mar", "Apr"], "unit": "mm"},
+        {"title": "Books Read", "labels": ["Alice", "Bob", "Charlie", "Dave"], "unit": "Books"},
+        {"title": "Goals Scored", "labels": ["Team A", "Team B", "Team C", "Team D"], "unit": "Goals"}
+    ],
+    "ds_problems": [
+        {
+            "question": "What is the Area of the rectangle?",
+            "stat1": "The length is 10 cm.",
+            "stat2": "The breadth is 5 cm.",
+            "correct": "Both I and II are required"
+        },
+        {
+            "question": "Is integer X even?",
+            "stat1": "X is divisible by 2.",
+            "stat2": "X is divisible by 3.",
+            "correct": "Only I is sufficient"
+        },
+        {
+            "question": "What is the cost of 5 pens?",
+            "stat1": "The cost of 10 pens is $20.",
+            "stat2": "The pens are blue.",
+            "correct": "Only I is sufficient"
+        },
+        {
+            "question": "Who is the tallest among A, B, and C?",
+            "stat1": "A is taller than B.",
+            "stat2": "B is taller than C.",
+            "correct": "Both I and II are required"
+        },
+        {
+            "question": "What is the value of x?",
+            "stat1": "x + y = 10",
+            "stat2": "y = 5",
+            "correct": "Both I and II are required"
+        }
+    ],
+    "lr_coding_words": ["APPLE", "TIGER", "CHAIR", "TABLE", "MOUSE", "PLANT", "CLOUD", "BRICK"]
+}

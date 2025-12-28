@@ -15,7 +15,7 @@
 
         <div class="mb-4 d-flex justify-content-center gap-3 flex-wrap" id="quiz-status-header">
             <span class="badge bg-secondary p-2">Unattempted: <span id="unattempted-count">0</span></span>
-            <span class="badge bg-success p-2">Answered: <span id="answered-count">0</span></span>
+            <span class=\"badge bg-success p-2">Answered: <span id="answered-count">0</span></span>
             <span class="badge bg-warning text-dark p-2">To Review: <span id="toreview-count">0</span></span>
             <span class="badge bg-primary p-2">Total: <span id="total-count">0</span></span>
         </div>
@@ -33,7 +33,9 @@
                                     <span class="timer fw-bold text-muted" id="timer-{{q.id}}">Time: 0s</span>
                                 </div>
 
-                                <h4 class="mb-4">{{q.question_text}}</h4>
+                                <div class="mb-4 text-center">
+                                    <h4>{{q.question_text | safe}}</h4>
+                                </div>
 
                                 <div class="mb-4">
                                     {% if q.type == 'single' %}
@@ -115,7 +117,7 @@
     </div>
 
     <script>const questions = {{ questions| tojson }};</script>
-    <script src="/static/app.js?v=5"></script>
+    <script src="/static/app.js?v=6"></script>
 </body>
 
 </html>

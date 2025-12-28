@@ -111,5 +111,581 @@
                 "time_spent": 0
             }
         ]
+    },
+    "28-12-25-10-13": {
+        "summary": {
+            "score_obtained": 0,
+            "total_questions": 10,
+            "percentage": 0.0,
+            "total_time_seconds": 1
+        },
+        "details": [
+            {
+                "question_id": 886477,
+                "question_text": "9390 - 1432 = ?",
+                "question_type": "single",
+                "category": "Arithmetic",
+                "user_answer": "No Answer",
+                "correct_answer": 7958,
+                "is_correct": false,
+                "time_spent": 1
+            },
+            {
+                "question_id": 510410,
+                "question_text": "List all prime factors of 401 (comma separated)",
+                "question_type": "text",
+                "category": "Number Theory",
+                "user_answer": "No Answer",
+                "correct_answer": "401",
+                "is_correct": false,
+                "time_spent": 0
+            },
+            {
+                "question_id": 429855,
+                "question_text": "1102 \u00d7 8 = ?",
+                "question_type": "single",
+                "category": "Arithmetic",
+                "user_answer": "No Answer",
+                "correct_answer": 8816,
+                "is_correct": false,
+                "time_spent": 0
+            },
+            {
+                "question_id": 889913,
+                "question_text": "List all prime factors of 235 (comma separated)",
+                "question_type": "text",
+                "category": "Number Theory",
+                "user_answer": "No Answer",
+                "correct_answer": "5,47",
+                "is_correct": false,
+                "time_spent": 0
+            },
+            {
+                "question_id": 143551,
+                "question_text": "5258 + 1926 = ?",
+                "question_type": "single",
+                "category": "Arithmetic",
+                "user_answer": "No Answer",
+                "correct_answer": 7184,
+                "is_correct": false,
+                "time_spent": 0
+            },
+            {
+                "question_id": 933382,
+                "question_text": "Convert 96.0% to fraction (as a/b, lowest terms)",
+                "question_type": "text",
+                "category": "Fractions & %",
+                "user_answer": "No Answer",
+                "correct_answer": "24/25",
+                "is_correct": false,
+                "time_spent": 0
+            },
+            {
+                "question_id": 662204,
+                "question_text": "Solve for x: 4x + 11 = 63",
+                "question_type": "single",
+                "category": "Algebra",
+                "user_answer": "No Answer",
+                "correct_answer": "13",
+                "is_correct": false,
+                "time_spent": 0
+            },
+            {
+                "question_id": 413260,
+                "question_text": "Convert 0.2 to percentage.",
+                "question_type": "single",
+                "category": "Fractions & %",
+                "user_answer": "No Answer",
+                "correct_answer": 20,
+                "is_correct": false,
+                "time_spent": 0
+            },
+            {
+                "question_id": 940772,
+                "question_text": "Solve for x: 11x + 2 = 134",
+                "question_type": "single",
+                "category": "Algebra",
+                "user_answer": "No Answer",
+                "correct_answer": "12",
+                "is_correct": false,
+                "time_spent": 0
+            },
+            {
+                "question_id": 426317,
+                "question_text": "List all prime factors of 71 (comma separated)",
+                "question_type": "text",
+                "category": "Number Theory",
+                "user_answer": "No Answer",
+                "correct_answer": "71",
+                "is_correct": false,
+                "time_spent": 0
+            }
+        ]
+    },
+    "28-12-25-11-35": {
+        "summary": {
+            "score_obtained": 0,
+            "total_questions": 14,
+            "percentage": 0.0,
+            "total_time_seconds": 33
+        },
+        "details": [
+            {
+                "question_id": 464530,
+                "question_text": "6741 - 6509 = ?",
+                "question_type": "single",
+                "category": "Arithmetic",
+                "user_answer": "No Answer",
+                "correct_answer": 232,
+                "is_correct": false,
+                "time_spent": 1
+            },
+            {
+                "question_id": 213646,
+                "question_text": "Solve for x: 9x + 16 = -29",
+                "question_type": "single",
+                "category": "Algebra",
+                "user_answer": "No Answer",
+                "correct_answer": "-5",
+                "is_correct": false,
+                "time_spent": 0
+            },
+            {
+                "question_id": 798306,
+                "question_text": "Convert 4/5 to decimal.",
+                "question_type": "single",
+                "category": "Fractions & %",
+                "user_answer": "No Answer",
+                "correct_answer": 0.8,
+                "is_correct": false,
+                "time_spent": 1
+            },
+            {
+                "question_id": 288334,
+                "question_text": "1989 \u00d7 5 = ?",
+                "question_type": "single",
+                "category": "Arithmetic",
+                "user_answer": "No Answer",
+                "correct_answer": 9945,
+                "is_correct": false,
+                "time_spent": 0
+            },
+            {
+                "question_id": 714410,
+                "question_text": "List all prime factors of 74 (comma separated)",
+                "question_type": "text",
+                "category": "Number Theory",
+                "user_answer": "No Answer",
+                "correct_answer": "2,37",
+                "is_correct": false,
+                "time_spent": 1
+            },
+            {
+                "question_id": 478785,
+                "question_text": "If 5 students can finish Greg Heffley's comic book in 15 days, how many days will it take for 3 students?",
+                "question_type": "single",
+                "category": "Unitary Method",
+                "user_answer": "No Answer",
+                "correct_answer": 25,
+                "is_correct": false,
+                "time_spent": 8
+            },
+            {
+                "question_id": 657257,
+                "question_text": "If 8 Hobbits can prepare a second breakfast in 6 days, how many days will it take for 6 Hobbits?",
+                "question_type": "single",
+                "category": "Unitary Method",
+                "user_answer": "No Answer",
+                "correct_answer": 8,
+                "is_correct": false,
+                "time_spent": 6
+            },
+            {
+                "question_id": 733169,
+                "question_text": "Solve for x: 11x + 14 = 168",
+                "question_type": "single",
+                "category": "Algebra",
+                "user_answer": "No Answer",
+                "correct_answer": "14",
+                "is_correct": false,
+                "time_spent": 1
+            },
+            {
+                "question_id": 901341,
+                "question_text": "List all prime factors of 43 (comma separated)",
+                "question_type": "text",
+                "category": "Number Theory",
+                "user_answer": "No Answer",
+                "correct_answer": "43",
+                "is_correct": false,
+                "time_spent": 0
+            },
+            {
+                "question_id": 669434,
+                "question_text": "List all prime factors of 252 (comma separated)",
+                "question_type": "text",
+                "category": "Number Theory",
+                "user_answer": "No Answer",
+                "correct_answer": "2,2,3,3,7",
+                "is_correct": false,
+                "time_spent": 0
+            },
+            {
+                "question_id": 862655,
+                "question_text": "A drone was bought for $300 but sold for $290. How much money was lost?",
+                "question_type": "single",
+                "category": "Profit & Loss",
+                "user_answer": "No Answer",
+                "correct_answer": 10,
+                "is_correct": false,
+                "time_spent": 5
+            },
+            {
+                "question_id": 382900,
+                "question_text": "Convert 1/2 to decimal.",
+                "question_type": "single",
+                "category": "Fractions & %",
+                "user_answer": "No Answer",
+                "correct_answer": 0.5,
+                "is_correct": false,
+                "time_spent": 0
+            },
+            {
+                "question_id": 378085,
+                "question_text": "If CP = $25 and SP = $7, what is the Loss %?",
+                "question_type": "single",
+                "category": "Profit & Loss",
+                "user_answer": "No Answer",
+                "correct_answer": 75,
+                "is_correct": false,
+                "time_spent": 2
+            },
+            {
+                "question_id": 613381,
+                "question_text": "Convert 46.0% to fraction (as a/b, lowest terms)",
+                "question_type": "text",
+                "category": "Fractions & %",
+                "user_answer": "No Answer",
+                "correct_answer": "23/50",
+                "is_correct": false,
+                "time_spent": 8
+            }
+        ]
+    },
+    "28-12-25-11-57": {
+        "summary": {
+            "score_obtained": 7,
+            "total_questions": 30,
+            "percentage": 23.33,
+            "total_time_seconds": 188
+        },
+        "details": [
+            {
+                "question_id": 484213,
+                "question_text": "Divide 7370 by 88. What is the Quotient and Remainder?",
+                "question_type": "dual",
+                "category": "Division",
+                "user_answer": "No Answer",
+                "correct_answer": {
+                    "quotient": 83,
+                    "remainder": 66
+                },
+                "is_correct": false,
+                "time_spent": 2
+            },
+            {
+                "question_id": 371780,
+                "question_text": "If CP = $100 and SP = $120, what is the Profit %?",
+                "question_type": "single",
+                "category": "Profit & Loss",
+                "user_answer": "No Answer",
+                "correct_answer": 20,
+                "is_correct": false,
+                "time_spent": 1
+            },
+            {
+                "question_id": 214707,
+                "question_text": "Convert 4/8 to decimal.",
+                "question_type": "single",
+                "category": "Fractions & Conversions",
+                "user_answer": "No Answer",
+                "correct_answer": 0.5,
+                "is_correct": false,
+                "time_spent": 0
+            },
+            {
+                "question_id": 452988,
+                "question_text": "A merchant bought a electric guitar for $280 and sold it for $250. What is the Loss?",
+                "question_type": "single",
+                "category": "Profit & Loss",
+                "user_answer": "30",
+                "correct_answer": 30,
+                "is_correct": true,
+                "time_spent": 5
+            },
+            {
+                "question_id": 497894,
+                "question_text": "List all prime factors of 205 (comma separated)",
+                "question_type": "text",
+                "category": "Factors",
+                "user_answer": "No Answer",
+                "correct_answer": "5,41",
+                "is_correct": false,
+                "time_spent": 1
+            },
+            {
+                "question_id": 190856,
+                "question_text": "Convert 6/10 to decimal.",
+                "question_type": "single",
+                "category": "Fractions & Conversions",
+                "user_answer": ".6",
+                "correct_answer": 0.6,
+                "is_correct": true,
+                "time_spent": 3
+            },
+            {
+                "question_id": 390206,
+                "question_text": "8449 + 3119 = ?",
+                "question_type": "single",
+                "category": "Addition",
+                "user_answer": "No Answer",
+                "correct_answer": 11568,
+                "is_correct": false,
+                "time_spent": 1
+            },
+            {
+                "question_id": 869903,
+                "question_text": "<div class=\"text-start\"><p class=\"fw-bold mb-2\">Who is the tallest among A, B, and C?</p><ul class=\"list-group mb-3\"><li class=\"list-group-item\"><b>I.</b> A is taller than B.</li><li class=\"list-group-item\"><b>II.</b> B is taller than C.</li></ul><p class=\"text-muted small\">Type answer: \"Only I\", \"Only II\", \"Both I and II\", \"Neither\"</p></div>",
+                "question_type": "text",
+                "category": "Data Sufficiency",
+                "user_answer": "No Answer",
+                "correct_answer": "Both I and II are required",
+                "is_correct": false,
+                "time_spent": 73
+            },
+            {
+                "question_id": 971812,
+                "question_text": "Solve for x: 4x + 9 = -51",
+                "question_type": "single",
+                "category": "Algebra",
+                "user_answer": "No Answer",
+                "correct_answer": "-15",
+                "is_correct": false,
+                "time_spent": 1
+            },
+            {
+                "question_id": 273042,
+                "question_text": "<div style=\"display:flex; flex-direction:column; align-items:center;\"><svg width=\"150\" height=\"150\" viewBox=\"0 0 150 150\"><circle cx=\"75\" cy=\"75\" r=\"50\" stroke=\"#1565c0\" stroke-width=\"3\" fill=\"#e3f2fd\" /><line x1=\"75\" y1=\"75\" x2=\"125\" y2=\"75\" style=\"stroke:#000;stroke-width:2\" /><text x=\"100\" y=\"70\" font-family=\"Arial\" font-size=\"14\" text-anchor=\"middle\">r = 8 m</text></svg><div style=\"margin-top:10px;\">Find the <b>Perimeter</b> (\u03c0=3.14).</div></div>",
+                "question_type": "single",
+                "category": "Geometry",
+                "user_answer": "50.24",
+                "correct_answer": 50.24,
+                "is_correct": true,
+                "time_spent": 42
+            },
+            {
+                "question_id": 352202,
+                "question_text": "<div style=\"display:flex; flex-direction:column; align-items:center;\"><svg width=\"150\" height=\"150\" viewBox=\"0 0 150 150\"><rect x=\"25\" y=\"25\" width=\"100\" height=\"100\" style=\"fill:#e3f2fd;stroke:#1565c0;stroke-width:3\" /><text x=\"75\" y=\"145\" font-family=\"Arial\" font-size=\"14\" text-anchor=\"middle\">7 m</text></svg><div style=\"margin-top:10px;\">Find the <b>Area</b>.</div></div>",
+                "question_type": "single",
+                "category": "Geometry",
+                "user_answer": "49",
+                "correct_answer": 49,
+                "is_correct": true,
+                "time_spent": 5
+            },
+            {
+                "question_id": 308511,
+                "question_text": "Convert 80.0% to fraction (as a/b, lowest terms)",
+                "question_type": "text",
+                "category": "Fractions & Conversions",
+                "user_answer": "4/5",
+                "correct_answer": "4/5",
+                "is_correct": true,
+                "time_spent": 13
+            },
+            {
+                "question_id": 326616,
+                "question_text": "6416 - 2562 = ?",
+                "question_type": "single",
+                "category": "Subtraction",
+                "user_answer": "No Answer",
+                "correct_answer": 3854,
+                "is_correct": false,
+                "time_spent": 0
+            },
+            {
+                "question_id": 522802,
+                "question_text": "If 1 dozen of gold ingots costs $108, cost of 3?",
+                "question_type": "single",
+                "category": "Unitary Method",
+                "user_answer": "No Answer",
+                "correct_answer": 27,
+                "is_correct": false,
+                "time_spent": 9
+            },
+            {
+                "question_id": 986390,
+                "question_text": "If 1 score of Poke Balls costs $100, cost of 3?",
+                "question_type": "single",
+                "category": "Unitary Method",
+                "user_answer": "No Answer",
+                "correct_answer": 15,
+                "is_correct": false,
+                "time_spent": 1
+            },
+            {
+                "question_id": 389872,
+                "question_text": "Convert 0.3 to percentage.",
+                "question_type": "single",
+                "category": "Fractions & Conversions",
+                "user_answer": "30",
+                "correct_answer": 30,
+                "is_correct": true,
+                "time_spent": 3
+            },
+            {
+                "question_id": 700604,
+                "question_text": "2555 + 6106 = ?",
+                "question_type": "single",
+                "category": "Addition",
+                "user_answer": "No Answer",
+                "correct_answer": 8661,
+                "is_correct": false,
+                "time_spent": 0
+            },
+            {
+                "question_id": 757997,
+                "question_text": "List all prime factors of 369 (comma separated)",
+                "question_type": "text",
+                "category": "Factors",
+                "user_answer": "No Answer",
+                "correct_answer": "3,3,41",
+                "is_correct": false,
+                "time_spent": 0
+            },
+            {
+                "question_id": 419881,
+                "question_text": "8297 - 6546 = ?",
+                "question_type": "single",
+                "category": "Subtraction",
+                "user_answer": "No Answer",
+                "correct_answer": 1751,
+                "is_correct": false,
+                "time_spent": 0
+            },
+            {
+                "question_id": 799981,
+                "question_text": "1081 \u00d7 4 = ?",
+                "question_type": "single",
+                "category": "Multiplication",
+                "user_answer": "No Answer",
+                "correct_answer": 4324,
+                "is_correct": false,
+                "time_spent": 0
+            },
+            {
+                "question_id": 942792,
+                "question_text": "<div class=\"text-start\"><p class=\"fw-bold mb-2\">What is the value of x?</p><ul class=\"list-group mb-3\"><li class=\"list-group-item\"><b>I.</b> x + y = 10</li><li class=\"list-group-item\"><b>II.</b> y = 5</li></ul><p class=\"text-muted small\">Type answer: \"Only I\", \"Only II\", \"Both I and II\", \"Neither\"</p></div>",
+                "question_type": "text",
+                "category": "Data Sufficiency",
+                "user_answer": "No Answer",
+                "correct_answer": "Both I and II are required",
+                "is_correct": false,
+                "time_spent": 5
+            },
+            {
+                "question_id": 581160,
+                "question_text": "Find the next number in the series: <b>8, 14, 20, 26, ?</b>",
+                "question_type": "single",
+                "category": "Logical Reasoning",
+                "user_answer": "32",
+                "correct_answer": 32,
+                "is_correct": true,
+                "time_spent": 7
+            },
+            {
+                "question_id": 816871,
+                "question_text": "<div style=\"display:flex; flex-direction:column; align-items:center;\"><h5>Student Marks</h5><svg width=\"300\" height=\"150\" viewBox=\"0 0 300 150\" style=\"border-left:2px solid #333; border-bottom:2px solid #333;\"><rect x=\"40\" y=\"40.0\" width=\"40\" height=\"80.0\" fill=\"#2196f3\" /><text x=\"60\" y=\"135\" font-family=\"Arial\" font-size=\"12\" text-anchor=\"middle\">Math</text><text x=\"60\" y=\"35.0\" font-family=\"Arial\" font-size=\"12\" text-anchor=\"middle\" font-weight=\"bold\">40</text><rect x=\"100\" y=\"20.0\" width=\"40\" height=\"100.0\" fill=\"#4caf50\" /><text x=\"120\" y=\"135\" font-family=\"Arial\" font-size=\"12\" text-anchor=\"middle\">Sci</text><text x=\"120\" y=\"15.0\" font-family=\"Arial\" font-size=\"12\" text-anchor=\"middle\" font-weight=\"bold\">50</text><rect x=\"160\" y=\"40.0\" width=\"40\" height=\"80.0\" fill=\"#2196f3\" /><text x=\"180\" y=\"135\" font-family=\"Arial\" font-size=\"12\" text-anchor=\"middle\">Eng</text><text x=\"180\" y=\"35.0\" font-family=\"Arial\" font-size=\"12\" text-anchor=\"middle\" font-weight=\"bold\">40</text><rect x=\"220\" y=\"80.0\" width=\"40\" height=\"40.0\" fill=\"#2196f3\" /><text x=\"240\" y=\"135\" font-family=\"Arial\" font-size=\"12\" text-anchor=\"middle\">Hist</text><text x=\"240\" y=\"75.0\" font-family=\"Arial\" font-size=\"12\" text-anchor=\"middle\" font-weight=\"bold\">20</text></svg><div style=\"margin-top:10px;\">What is the difference in Marks between Math and Hist?</div></div>",
+                "question_type": "single",
+                "category": "Data Interpretation",
+                "user_answer": "No Answer",
+                "correct_answer": 20,
+                "is_correct": false,
+                "time_spent": 7
+            },
+            {
+                "question_id": 128322,
+                "question_text": "Convert 58.0% to fraction (as a/b, lowest terms)",
+                "question_type": "text",
+                "category": "Fractions & Conversions",
+                "user_answer": "No Answer",
+                "correct_answer": "29/50",
+                "is_correct": false,
+                "time_spent": 2
+            },
+            {
+                "question_id": 136264,
+                "question_text": "Solve for x: 2x - 18 = -38",
+                "question_type": "single",
+                "category": "Algebra",
+                "user_answer": "No Answer",
+                "correct_answer": "-10",
+                "is_correct": false,
+                "time_spent": 0
+            },
+            {
+                "question_id": 599249,
+                "question_text": "Divide 5613 by 57. What is the Quotient and Remainder?",
+                "question_type": "dual",
+                "category": "Division",
+                "user_answer": "No Answer",
+                "correct_answer": {
+                    "quotient": 98,
+                    "remainder": 27
+                },
+                "is_correct": false,
+                "time_spent": 0
+            },
+            {
+                "question_id": 814277,
+                "question_text": "Convert 0.875 to percentage.",
+                "question_type": "single",
+                "category": "Fractions & Conversions",
+                "user_answer": "No Answer",
+                "correct_answer": 87.5,
+                "is_correct": false,
+                "time_spent": 1
+            },
+            {
+                "question_id": 511433,
+                "question_text": "<div style=\"display:flex; flex-direction:column; align-items:center;\"><h5>Goals Scored</h5><svg width=\"300\" height=\"150\" viewBox=\"0 0 300 150\" style=\"border-left:2px solid #333; border-bottom:2px solid #333;\"><rect x=\"40\" y=\"57.5\" width=\"40\" height=\"62.5\" fill=\"#2196f3\" /><text x=\"60\" y=\"135\" font-family=\"Arial\" font-size=\"12\" text-anchor=\"middle\">Team A</text><text x=\"60\" y=\"52.5\" font-family=\"Arial\" font-size=\"12\" text-anchor=\"middle\" font-weight=\"bold\">50</text><rect x=\"100\" y=\"95.0\" width=\"40\" height=\"25.0\" fill=\"#2196f3\" /><text x=\"120\" y=\"135\" font-family=\"Arial\" font-size=\"12\" text-anchor=\"middle\">Team B</text><text x=\"120\" y=\"90.0\" font-family=\"Arial\" font-size=\"12\" text-anchor=\"middle\" font-weight=\"bold\">20</text><rect x=\"160\" y=\"20.0\" width=\"40\" height=\"100.0\" fill=\"#4caf50\" /><text x=\"180\" y=\"135\" font-family=\"Arial\" font-size=\"12\" text-anchor=\"middle\">Team C</text><text x=\"180\" y=\"15.0\" font-family=\"Arial\" font-size=\"12\" text-anchor=\"middle\" font-weight=\"bold\">80</text><rect x=\"220\" y=\"82.5\" width=\"40\" height=\"37.5\" fill=\"#2196f3\" /><text x=\"240\" y=\"135\" font-family=\"Arial\" font-size=\"12\" text-anchor=\"middle\">Team D</text><text x=\"240\" y=\"77.5\" font-family=\"Arial\" font-size=\"12\" text-anchor=\"middle\" font-weight=\"bold\">30</text></svg><div style=\"margin-top:10px;\">What is the total Goals across all categories?</div></div>",
+                "question_type": "single",
+                "category": "Data Interpretation",
+                "user_answer": "No Answer",
+                "correct_answer": 180,
+                "is_correct": false,
+                "time_spent": 3
+            },
+            {
+                "question_id": 323797,
+                "question_text": "Find the next number in the series: <b>10, 16, 22, 28, ?</b>",
+                "question_type": "single",
+                "category": "Logical Reasoning",
+                "user_answer": "No Answer",
+                "correct_answer": 34,
+                "is_correct": false,
+                "time_spent": 1
+            },
+            {
+                "question_id": 284118,
+                "question_text": "1110 \u00d7 9 = ?",
+                "question_type": "single",
+                "category": "Multiplication",
+                "user_answer": "No Answer",
+                "correct_answer": 9990,
+                "is_correct": false,
+                "time_spent": 2
+            }
+        ]
     }
 }
